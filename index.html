@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Dad! 💙</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --bg: #08152c;
+  --surface: #102448;
+  --blue: #83b9ff;
+  --light: #dcecff;
+  --white: #ffffff;
+  --gold: #ffe3a3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+section {
+  min-height: 100svh;
+  padding: 100px 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  color: var(--light);
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 15px 35px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50px;
+  color: #08152c;
+  background: linear-gradient(135deg, #dcecff, #83b9ff);
+  font-weight: 700;
+  box-shadow: 0 8px 35px rgba(80,150,255,.25);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 45px rgba(80,150,255,.45);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* STAR BACKGROUND */
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .15; transform: scale(.6); }
+  to { opacity: 1; transform: scale(1.4); }
+}
+
+/* WELCOME */
+
+#welcome {
+  background: radial-gradient(
+    circle at 50% 40%,
+    #193b71 0%,
+    #08152c 70%
+  );
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--blue);
+  font-size: .8rem;
+  margin-bottom: 25px;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  line-height: 1.15;
+  background: linear-gradient(
+    135deg,
+    white,
+    #a8d0ff,
+    #ffffff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-message {
+  margin-top: 30px;
+  font-size: 1.1rem;
+  color: var(--light);
+}
+
+.floating-heart {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+/* CELEBRATION */
+
+#celebration {
+  background: linear-gradient(
+    180deg,
+    #08152c,
+    #112d56
+  );
+}
+
+.birthday-text {
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--gold);
+  margin-bottom: 25px;
+}
+
+.balloon-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  font-size: 4rem;
+  animation: rise linear infinite;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-120vh) rotate(15deg);
+  }
+}
+
+/* CAKE */
+
+#cake-section {
+  background: #0b1d3a;
+}
+
+.cake {
+  position: relative;
+  width: 240px;
+  height: 190px;
+  margin: 95px auto 25px;
+  cursor: pointer;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,.3));
+}
+
+.cake-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 240px;
+  height: 115px;
+  background: linear-gradient(
+    90deg,
+    #689bdb,
+    #b5d6ff,
+    #689bdb
+  );
+  border-radius: 15px 15px 25px 25px;
+}
+
+.cake-top {
+  position: absolute;
+  bottom: 105px;
+  left: 15px;
+  width: 210px;
+  height: 55px;
+  background: #e8f4ff;
+  border-radius: 18px 18px 12px 12px;
+}
+
+.icing {
+  position: absolute;
+  bottom: 90px;
+  left: 15px;
+  width: 210px;
+  height: 25px;
+  background: #e8f4ff;
+  border-radius: 0 0 50% 50%;
+}
+
+.candles {
+  position: absolute;
+  bottom: 155px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+}
+
+.candle {
+  position: relative;
+  width: 12px;
+  height: 45px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 8px,
+    #83b9ff 8px,
+    #83b9ff 15px
+  );
+}
+
+.flame {
+  position: absolute;
+  width: 16px;
+  height: 24px;
+  left: -2px;
+  top: -27px;
+  border-radius: 50% 50% 45% 45%;
+  background: #ffce64;
+  box-shadow: 0 0 20px #ffc247;
+  animation: flicker .5s infinite alternate;
+}
+
+@keyframes flicker {
+  to { transform: scale(.8) rotate(5deg); }
+}
+
+.cake.out .flame {
+  display: none;
+}
+
+#cake-message {
+  margin-top: 20px;
+  color: var(--gold);
+  font-size: 1.3rem;
+  min-height: 40px;
+}
+
+/* PHOTO GALLERY */
+
+#memories {
+  background: linear-gradient(
+    180deg,
+    #0b1d3a,
+    #102448
+  );
+}
+
+.gallery {
+  width: 100%;
+  max-width: 1050px;
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.photo-card {
+  height: 340px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .8s;
+}
+
+.photo-card.flipped .photo-inner {
+  transform: rotateY(180deg);
+}
+
+.photo-front,
+.photo-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.photo-front {
+  background: white;
+  padding: 12px 12px 45px;
+  color: #18345e;
+}
+
+.photo-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.photo-front p {
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.photo-back {
+  background: linear-gradient(
+    135deg,
+    #a8d0ff,
+    #dcecff
+  );
+  color: #102448;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px;
+  line-height: 1.7;
+}
+
+.photo-back h3 {
+  margin-bottom: 15px;
+  font-size: 1.7rem;
+}
+
+/* LETTER */
+
+#letter-section {
+  background: radial-gradient(
+    circle at center,
+    #193c70,
+    #08152c 75%
+  );
+}
+
+.envelope {
+  position: relative;
+  width: min(320px, 80vw);
+  height: 210px;
+  margin: 55px auto 20px;
+  background: #8cbcff;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+  transition: transform .4s;
+  border: none;
+  display: block;
+}
+
+.envelope:hover {
+  transform: translateY(-10px);
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #b6d7ff;
+  clip-path: polygon(0 0, 50% 55%, 100% 0);
+}
+
+.envelope::after {
+  content: "💙";
+  position: absolute;
+  font-size: 2rem;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%,-50%);
+}
+
+.letter {
+  width: min(650px, 95%);
+  background: #f5f9ff;
+  color: #18345e;
+  padding: clamp(25px, 5vw, 55px);
+  border-radius: 15px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.3);
+  text-align: left;
+  animation: letterAppear .8s ease;
+}
+
+.letter h2 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+}
+
+.letter p {
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.signature {
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+}
+
+@keyframes letterAppear {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* CONFETTI */
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  width: 10px;
+  height: 15px;
+  pointer-events: none;
+  z-index: 100;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 35px;
+  color: #a8c9ef;
+  background: #08152c;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  section {
+    padding: 85px 6%;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+  }
+
+  .photo-card {
+    height: 360px;
+  }
+
+  .hero-title {
+    font-size: 3.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<div id="stars" aria-hidden="true"></div>
+
+<!-- WELCOME -->
+<section id="welcome">
+
+  <div class="floating-heart">💙</div>
+
+  <p class="eyebrow">A little something just for you</p>
+
+  <h1 class="hero-title">
+    Hey, Dad!
+  </h1>
+
+  <p class="hero-message">
+    I made something special for you.
+    <br>
+    Ready for a little surprise?
+  </p>
+
+  <button class="btn" onclick="startSurprise()">
+    Open Your Surprise 🎁
+  </button>
+
+</section>
+
+<!-- CELEBRATION -->
+<section id="celebration" class="hidden">
+
+  <div class="balloon-container" id="balloons"></div>
+
+  <p class="eyebrow">Today is all about you</p>
+
+  <h2 class="birthday-text">
+    Happy Birthday, Dad!
+  </h2>
+
+  <p class="subtitle">
+    Wishing you a day filled with happiness,
+    laughter, love, and everything you deserve.
+    Thank you for being the amazing dad you are.
+  </p>
+
+  <button class="btn" onclick="goTo('cake-section')">
+    Make a Birthday Wish ✨
+  </button>
+
+</section>
+
+<!-- CAKE -->
+<section id="cake-section" class="hidden">
+
+  <p class="eyebrow">Time to make a wish</p>
+
+  <h2 class="section-title">
+    Make a Wish, Dad! 🎂
+  </h2>
+
+  <p class="subtitle">
+    Close your eyes, make a wish,
+    then click the cake to blow out the candles!
+  </p>
+
+  <div class="cake"
+       id="cake"
+       onclick="blowCandles()"
+       role="button"
+       tabindex="0"
+       aria-label="Blow out birthday candles"
+       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();blowCandles()}">
+
+    <div class="cake-bottom"></div>
+    <div class="cake-top"></div>
+    <div class="icing"></div>
+
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+
+  </div>
+
+  <p id="cake-message" aria-live="polite"></p>
+
+  <button class="btn hidden"
+          id="memories-btn"
+          onclick="goTo('memories')">
+    A Walk Down Memory Lane 📸
+  </button>
+
+</section>
+
+<!-- MEMORIES -->
+<section id="memories" class="hidden">
+
+  <p class="eyebrow">The moments that matter</p>
+
+  <h2 class="section-title">
+    Our Favorite Memories
+  </h2>
+
+  <p class="subtitle">
+    Every picture tells a story.
+    Tap a photo to discover a little message!
+  </p>
+
+  <div class="gallery">
+
+    <!-- PHOTO 1 -->
+    <div class="photo-card" tabindex="0"
+         role="button"
+         aria-label="Flip memory one"
+         onclick="flipCard(this)"
+         onkeydown="flipWithKeyboard(event,this)">
+      <div class="photo-inner">
+
+        <div class="photo-front">
+          <img src="photo1.jpg" alt="Family memory one"
+               onerror="this.src='https://placehold.co/400x450/c6ddff/18345e?text=Our+Memory+1'">
+          <p>Memory #1 💙</p>
+        </div>
+
+        <div class="photo-back">
+          <h3>Remember This?</h3>
+          <p>
+            Replace this with a favorite memory
+            you share with your dad!
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="photo-card" tabindex="0"
+         role="button"
+         aria-label="Flip memory two"
+         onclick="flipCard(this)"
+         onkeydown="flipWithKeyboard(event,this)">
+      <div class="photo-inner">
+
+        <div class="photo-front">
+          <img src="photo2.jpg" alt="Family memory two"
+               onerror="this.src='https://placehold.co/400x450/c6ddff/18345e?text=Our+Memory+2'">
+          <p>Memory #2 ✨</p>
+        </div>
+
+        <div class="photo-back">
+          <h3>Good Times</h3>
+          <p>
+            Add a funny story, a family tradition,
+            or a moment you'll never forget.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="photo-card" tabindex="0"
+         role="button"
+         aria-label="Flip memory three"
+         onclick="flipCard(this)"
+         onkeydown="flipWithKeyboard(event,this)">
+      <div class="photo-inner">
+
+        <div class="photo-front">
+          <img src="photo3.jpg" alt="Family memory three"
+               onerror="this.src='https://placehold.co/400x450/c6ddff/18345e?text=Our+Memory+3'">
+          <p>Memory #3 🎉</p>
+        </div>
+
+        <div class="photo-back">
+          <h3>Thank You, Dad</h3>
+          <p>
+            Thank you for all the little things
+            you do that mean so much to me.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <button class="btn" onclick="goTo('letter-section')">
+    One Last Surprise 💌
+  </button>
+
+</section>
+
+<!-- LETTER -->
+<section id="letter-section" class="hidden">
+
+  <p class="eyebrow">From me to you</p>
+
+  <h2 class="section-title">
+    A Letter for Dad 💌
+  </h2>
+
+  <p class="subtitle" id="letter-instruction">
+    There's one more thing I want to tell you.
+    Click the envelope to open it!
+  </p>
+
+  <button class="envelope"
+          id="envelope"
+          onclick="openLetter()"
+          aria-label="Open birthday letter">
+  </button>
+
+  <article class="letter hidden" id="letter">
+
+    <h2>Dear Dad, 💙</h2>
+
+    <p>
+      Happy Birthday!
+    </p>
+
+    <p>
+      I wanted to make you something a little
+      different this year. Instead of just
+      giving you a regular birthday card,
+      I decided to create something myself.
+    </p>
+
+    <p>
+      Thank you for always being there for me,
+      supporting me, and believing in me.
+      I appreciate everything you've done
+      and all the memories we've made together.
+    </p>
+
+    <p>
+      I hope this year brings you so much
+      happiness, good health, laughter,
+      and wonderful new memories.
+    </p>
+
+    <p>
+      No matter how old I get,
+      I'll always be grateful to have you
+      as my dad.
+    </p>
+
+    <p>
+      Happy Birthday! I love you! 💙
+    </p>
+
+    <p class="signature">
+      Love,<br>
+      Your Daughter 💙
+    </p>
+
+  </article>
+
+  <button class="btn hidden"
+          id="replay-btn"
+          onclick="replaySurprise()">
+    Experience It Again ↻
+  </button>
+
+</section>
+
+<footer>
+  Made with love, a little code, and lots of 💙
+  <br>
+  Especially for Dad.
+</footer>
+
+<script>
+
+/* CREATE TWINKLING STARS */
+
+const starContainer = document.getElementById("stars");
+
+for (let i = 0; i < 100; i++) {
+  const star = document.createElement("div");
+  star.className = "star";
+
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay = Math.random() * 4 + "s";
+
+  starContainer.appendChild(star);
+}
+
+/* START SURPRISE */
+
+function startSurprise() {
+  document.getElementById("welcome").classList.add("hidden");
+
+  document.getElementById("celebration").classList.remove("hidden");
+
+  createBalloons();
+  launchConfetti();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* MOVE BETWEEN SECTIONS */
+
+function goTo(id) {
+  const section = document.getElementById(id);
+
+  section.classList.remove("hidden");
+
+  requestAnimationFrame(() => {
+    section.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+/* FLOATING BALLOONS */
+
+function createBalloons() {
+  const container = document.getElementById("balloons");
+
+  container.innerHTML = "";
+
+  const emojis = ["🎈", "💙", "🎈", "🤍", "🎈"];
+
+  for (let i = 0; i < 16; i++) {
+    const balloon = document.createElement("div");
+
+    balloon.className = "balloon";
+    balloon.textContent = emojis[i % emojis.length];
+
+    balloon.style.left = Math.random() * 95 + "%";
+    balloon.style.animationDuration = 8 + Math.random() * 7 + "s";
+    balloon.style.animationDelay = -Math.random() * 12 + "s";
+
+    container.appendChild(balloon);
+  }
+}
+
+/* CONFETTI ANIMATION */
+
+function launchConfetti() {
+  const colors = [
+    "#83b9ff",
+    "#ffffff",
+    "#ffe3a3",
+    "#b8d7ff",
+    "#6c9ce8"
+  ];
+
+  for (let i = 0; i < 120; i++) {
+    const piece = document.createElement("div");
+
+    piece.className = "confetti";
+
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    piece.style.animationDuration =
+      3 + Math.random() * 3 + "s";
+
+    piece.style.animationDelay =
+      Math.random() * 1.5 + "s";
+
+    document.body.appendChild(piece);
+
+    piece.addEventListener("animationend", () => {
+      piece.remove();
+    });
+  }
+}
+
+/* BLOW OUT CANDLES */
+
+let candlesBlown = false;
+
+function blowCandles() {
+  if (candlesBlown) return;
+
+  candlesBlown = true;
+
+  document.getElementById("cake").classList.add("out");
+
+  document.getElementById("cake-message").textContent =
+    "May all your birthday wishes come true! 💙";
+
+  document.getElementById("memories-btn")
+    .classList.remove("hidden");
+
+  launchConfetti();
+}
+
+/* FLIP PHOTO CARDS */
+
+function flipCard(card) {
+  card.classList.toggle("flipped");
+  card.setAttribute(
+    "aria-pressed",
+    card.classList.contains("flipped") ? "true" : "false"
+  );
+}
+
+function flipWithKeyboard(event, card) {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    flipCard(card);
+  }
+}
+
+/* OPEN BIRTHDAY LETTER */
+
+function openLetter() {
+  document.getElementById("envelope").classList.add("hidden");
+
+  document.getElementById("letter-instruction")
+    .classList.add("hidden");
+
+  document.getElementById("letter").classList.remove("hidden");
+
+  document.getElementById("replay-btn")
+    .classList.remove("hidden");
+
+  launchConfetti();
+}
+
+/* REPLAY THE EXPERIENCE */
+
+function replaySurprise() {
+  candlesBlown = false;
+
+  document.getElementById("cake").classList.remove("out");
+
+  document.getElementById("cake-message").textContent = "";
+
+  document.getElementById("memories-btn")
+    .classList.add("hidden");
+
+  document.querySelectorAll(".photo-card").forEach(card => {
+    card.classList.remove("flipped");
+    card.setAttribute("aria-pressed", "false");
+  });
+
+  document.getElementById("envelope").classList.remove("hidden");
+  document.getElementById("letter").classList.add("hidden");
+
+  document.getElementById("letter-instruction")
+    .classList.remove("hidden");
+
+  document.getElementById("replay-btn").classList.add("hidden");
+
+  [
+    "celebration",
+    "cake-section",
+    "memories",
+    "letter-section"
+  ].forEach(id => {
+    document.getElementById(id).classList.add("hidden");
+  });
+
+  document.getElementById("welcome").classList.remove("hidden");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+</script>
+
+</body>
+</html>
