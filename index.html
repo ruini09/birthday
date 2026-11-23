@@ -2,40 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Happy Birthday, Dad! 💙</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
 :root {
-  --bg: #08152c;
-  --surface: #102448;
-  --blue: #83b9ff;
-  --light: #dcecff;
-  --white: #ffffff;
-  --gold: #ffe3a3;
+  --navy: #07172f;
+  --deep: #102c51;
+  --blue: #8fc4ff;
+  --ice: #e4f2ff;
+  --gold: #ffdf9b;
+  --text: #f5faff;
+  --muted: #b9d0e9;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--white);
+  margin: 0;
+  background: var(--navy);
+  color: var(--text);
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
-}
-
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
 }
 
 button {
@@ -49,210 +43,180 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
-section {
-  min-height: 100svh;
-  padding: 100px 7%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
 }
 
-.section-title {
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  margin-bottom: 20px;
-}
+p { line-height: 1.8; }
 
-.subtitle {
-  color: var(--light);
-  line-height: 1.8;
-  max-width: 600px;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 15px 35px;
-  border: 1px solid rgba(255,255,255,.35);
-  border-radius: 50px;
-  color: #08152c;
-  background: linear-gradient(135deg, #dcecff, #83b9ff);
-  font-weight: 700;
-  box-shadow: 0 8px 35px rgba(80,150,255,.25);
-  transition: transform .3s, box-shadow .3s;
-}
-
-.btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 45px rgba(80,150,255,.45);
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* STAR BACKGROUND */
-
-#stars {
+.stars {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 25%, #163b69 0, transparent 35%),
+    radial-gradient(circle at 80% 75%, #122e52 0, transparent 35%);
 }
 
 .star {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 2px;
+  height: 2px;
   border-radius: 50%;
   background: white;
-  animation: twinkle 3s infinite alternate;
+  animation: twinkle 3s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
-  from { opacity: .15; transform: scale(.6); }
-  to { opacity: 1; transform: scale(1.4); }
+  from { opacity: .12; transform: scale(.7); }
+  to { opacity: .9; transform: scale(1.5); }
 }
 
-/* WELCOME */
+section {
+  padding: 100px 7%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
 
-#welcome {
-  background: radial-gradient(
-    circle at 50% 40%,
-    #193b71 0%,
-    #08152c 70%
-  );
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .eyebrow {
+  letter-spacing: .25em;
   text-transform: uppercase;
-  letter-spacing: 5px;
   color: var(--blue);
-  font-size: .8rem;
-  margin-bottom: 25px;
+  font-size: .75rem;
+  font-weight: 700;
 }
 
-.hero-title {
-  font-size: clamp(3.5rem, 10vw, 8rem);
-  line-height: 1.15;
-  background: linear-gradient(
-    135deg,
-    white,
-    #a8d0ff,
-    #ffffff
-  );
-  -webkit-background-clip: text;
+.hero h1 {
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  line-height: 1.08;
+  margin: 18px 0;
+  background: linear-gradient(110deg, #fff, #a7d2ff, #fff);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 
-.hero-message {
-  margin-top: 30px;
-  font-size: 1.1rem;
-  color: var(--light);
-}
-
-.floating-heart {
+.hero .emoji {
   font-size: 4rem;
-  margin-bottom: 30px;
-  animation: float 3s ease-in-out infinite;
+  animation: bob 3s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
+@keyframes bob {
+  50% { transform: translateY(-15px); }
 }
 
-/* CELEBRATION */
-
-#celebration {
-  background: linear-gradient(
-    180deg,
-    #08152c,
-    #112d56
-  );
+.lead {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
-.birthday-text {
-  font-size: clamp(3rem, 8vw, 6rem);
-  color: var(--gold);
-  margin-bottom: 25px;
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(135deg, #e8f4ff, #8fc4ff);
+  color: #10294b;
+  border: 0;
+  border-radius: 100px;
+  padding: 15px 28px;
+  font-weight: 700;
+  box-shadow: 0 8px 28px #0005;
+  transition: transform .2s, box-shadow .2s;
+  margin: 28px 8px 0;
 }
 
-.balloon-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 34px #0007;
 }
 
-.balloon {
-  position: absolute;
-  bottom: -150px;
-  font-size: 4rem;
-  animation: rise linear infinite;
+.btn.secondary {
+  background: transparent;
+  color: var(--ice);
+  border: 1px solid #8fc4ff77;
 }
 
-@keyframes rise {
-  to {
-    transform: translateY(-120vh) rotate(15deg);
-  }
+.hidden { display: none !important; }
+
+.heading {
+  font-size: clamp(2.3rem, 6vw, 4.4rem);
+  margin: 12px 0 18px;
 }
 
-/* CAKE */
-
-#cake-section {
-  background: #0b1d3a;
+.panel {
+  background: linear-gradient(145deg, #153961bb, #0e2446e8);
+  border: 1px solid #b7d9ff30;
+  border-radius: 28px;
+  padding: clamp(24px, 5vw, 54px);
+  box-shadow: 0 18px 55px #0003;
 }
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8fc4ff55, transparent);
+  max-width: 850px;
+  margin: 10px auto;
+}
+
+/* BIRTHDAY CAKE */
 
 .cake {
   position: relative;
-  width: 240px;
-  height: 190px;
-  margin: 95px auto 25px;
+  width: 230px;
+  height: 225px;
+  margin: 65px auto 0;
   cursor: pointer;
-  filter: drop-shadow(0 15px 25px rgba(0,0,0,.3));
+  border: 0;
+  background: transparent;
+  display: block;
 }
 
-.cake-bottom {
+.cake-base {
   position: absolute;
-  bottom: 0;
-  width: 240px;
+  bottom: 20px;
+  left: 0;
+  width: 230px;
   height: 115px;
-  background: linear-gradient(
-    90deg,
-    #689bdb,
-    #b5d6ff,
-    #689bdb
-  );
-  border-radius: 15px 15px 25px 25px;
+  border-radius: 18px 18px 30px 30px;
+  background: linear-gradient(90deg, #679cda, #c5e4ff, #679cda);
+  box-shadow: inset 0 -16px #598bc9;
 }
 
-.cake-top {
+.cake-icing {
   position: absolute;
-  bottom: 105px;
-  left: 15px;
+  bottom: 120px;
+  left: 10px;
   width: 210px;
-  height: 55px;
-  background: #e8f4ff;
-  border-radius: 18px 18px 12px 12px;
+  height: 40px;
+  border-radius: 30px 30px 18px 18px;
+  background: #f1f8ff;
 }
 
-.icing {
+.cake-icing::after {
+  content: '';
   position: absolute;
-  bottom: 90px;
-  left: 15px;
-  width: 210px;
-  height: 25px;
-  background: #e8f4ff;
+  left: 0;
+  right: 0;
+  top: 24px;
+  height: 22px;
   border-radius: 0 0 50% 50%;
+  background: #f1f8ff;
 }
 
 .candles {
   position: absolute;
-  bottom: 155px;
+  bottom: 158px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -261,211 +225,238 @@ section {
 
 .candle {
   position: relative;
-  width: 12px;
-  height: 45px;
+  width: 13px;
+  height: 43px;
   border-radius: 4px;
   background: repeating-linear-gradient(
     45deg,
-    #fff,
-    #fff 8px,
-    #83b9ff 8px,
-    #83b9ff 15px
+    #fff 0 8px,
+    #83b9ff 8px 15px
   );
 }
 
 .flame {
   position: absolute;
-  width: 16px;
-  height: 24px;
-  left: -2px;
   top: -27px;
+  left: -2px;
+  width: 17px;
+  height: 24px;
   border-radius: 50% 50% 45% 45%;
-  background: #ffce64;
-  box-shadow: 0 0 20px #ffc247;
-  animation: flicker .5s infinite alternate;
+  background: #ffd36e;
+  box-shadow: 0 0 20px #ffbd46;
+  animation: flicker .45s infinite alternate;
 }
 
 @keyframes flicker {
-  to { transform: scale(.8) rotate(5deg); }
+  to { transform: rotate(8deg) scale(.8); }
 }
 
-.cake.out .flame {
-  display: none;
+.cake.out .flame { display: none; }
+
+.small {
+  font-size: .9rem;
+  color: var(--muted);
 }
 
-#cake-message {
-  margin-top: 20px;
-  color: var(--gold);
-  font-size: 1.3rem;
-  min-height: 40px;
-}
+/* PHOTO CARDS */
 
-/* PHOTO GALLERY */
-
-#memories {
-  background: linear-gradient(
-    180deg,
-    #0b1d3a,
-    #102448
-  );
-}
-
-.gallery {
-  width: 100%;
-  max-width: 1050px;
-  margin-top: 55px;
+.grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 40px;
 }
 
 .photo-card {
-  height: 340px;
-  perspective: 1000px;
-  cursor: pointer;
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 12px 20px;
+  background: #eaf4ff;
+  color: #143154;
+  text-align: left;
+  min-width: 0;
+  box-shadow: 0 15px 35px #0004;
+  transition: transform .25s;
 }
 
-.photo-inner {
+.photo-card:hover { transform: translateY(-5px); }
+
+.photo-card img,
+.placeholder {
   width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform .8s;
-}
-
-.photo-card.flipped .photo-inner {
-  transform: rotateY(180deg);
-}
-
-.photo-front,
-.photo-back {
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  overflow: hidden;
-}
-
-.photo-front {
-  background: white;
-  padding: 12px 12px 45px;
-  color: #18345e;
-}
-
-.photo-front img {
-  width: 100%;
-  height: 100%;
+  height: 220px;
   object-fit: cover;
-  border-radius: 8px;
-}
-
-.photo-front p {
-  margin-top: 10px;
-  font-weight: 700;
-}
-
-.photo-back {
-  background: linear-gradient(
-    135deg,
-    #a8d0ff,
-    #dcecff
-  );
-  color: #102448;
-  transform: rotateY(180deg);
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 25px;
+  background: linear-gradient(145deg, #a7cefc, #e4f2ff);
+  color: #294c79;
+  text-align: center;
+  padding: 16px;
+  font-size: 2.4rem;
+}
+
+.photo-card strong {
+  display: block;
+  margin: 14px 6px 5px;
+  font-size: 1rem;
+}
+
+.photo-card span {
+  display: block;
+  margin: 0 6px;
+  color: #476483;
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+.memory-note {
+  display: none;
+  margin: 12px 6px 0;
+  padding-top: 12px;
+  border-top: 1px solid #aac8e7;
+  font-size: .95rem;
   line-height: 1.7;
 }
 
-.photo-back h3 {
-  margin-bottom: 15px;
-  font-size: 1.7rem;
+.photo-card.open .memory-note { display: block; }
+
+/* MEMORY TIMELINE */
+
+.timeline {
+  position: relative;
+  max-width: 850px;
+  margin: 45px auto 0;
 }
 
-/* LETTER */
-
-#letter-section {
-  background: radial-gradient(
-    circle at center,
-    #193c70,
-    #08152c 75%
-  );
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #83b9ff77;
 }
+
+.memory {
+  position: relative;
+  margin: 0 0 26px 60px;
+  text-align: left;
+}
+
+.memory::before {
+  content: '✦';
+  position: absolute;
+  left: -46px;
+  top: 25px;
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+.memory-content {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  align-items: center;
+  background: #102d50;
+  border: 1px solid #a8d4ff2a;
+  padding: 15px;
+  border-radius: 22px;
+}
+
+.memory-content img,
+.memory-content .placeholder {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 13px;
+}
+
+.memory h3 {
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+}
+
+.memory p {
+  color: var(--muted);
+  margin: 0;
+  font-size: .94rem;
+}
+
+/* HEARTFELT SECTION */
+
+.quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.55rem, 3.8vw, 2.7rem);
+  line-height: 1.6;
+  max-width: 850px;
+  margin: 35px auto;
+  color: #e8f3ff;
+}
+
+.quote strong { color: var(--gold); }
+
+/* ENVELOPE AND LETTER */
 
 .envelope {
+  width: 270px;
+  height: 175px;
   position: relative;
-  width: min(320px, 80vw);
-  height: 210px;
-  margin: 55px auto 20px;
-  background: #8cbcff;
+  background: #8cbfff;
+  border: 0;
   border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 20px 50px rgba(0,0,0,.3);
-  transition: transform .4s;
-  border: none;
   display: block;
+  margin: 45px auto;
+  box-shadow: 0 15px 40px #0006;
+  transition: transform .25s;
 }
 
-.envelope:hover {
-  transform: translateY(-10px);
-}
+.envelope:hover { transform: translateY(-8px); }
 
 .envelope::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background: #b6d7ff;
-  clip-path: polygon(0 0, 50% 55%, 100% 0);
+  background: #bddcff;
+  clip-path: polygon(0 0, 50% 57%, 100% 0);
 }
 
 .envelope::after {
-  content: "💙";
+  content: '💙';
   position: absolute;
-  font-size: 2rem;
   left: 50%;
-  top: 48%;
-  transform: translate(-50%,-50%);
+  top: 53%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
 }
 
 .letter {
-  width: min(650px, 95%);
-  background: #f5f9ff;
-  color: #18345e;
-  padding: clamp(25px, 5vw, 55px);
-  border-radius: 15px;
-  box-shadow: 0 25px 60px rgba(0,0,0,.3);
+  max-width: 700px;
+  margin: 40px auto;
   text-align: left;
-  animation: letterAppear .8s ease;
+  background: #f5f9ff;
+  color: #1b3556;
+  border-radius: 18px;
+  padding: clamp(25px, 6vw, 55px);
+  box-shadow: 0 22px 55px #0006;
+  animation: appear .6s ease;
 }
 
-.letter h2 {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-}
+.letter p { line-height: 2; }
 
-.letter p {
-  line-height: 2;
-  margin-bottom: 20px;
-}
+.letter h3 { font-size: 2rem; }
 
 .signature {
   text-align: right;
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
 }
 
-@keyframes letterAppear {
-  from {
-    opacity: 0;
-    transform: translateY(50px) scale(.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* CONFETTI */
@@ -473,60 +464,64 @@ section {
 .confetti {
   position: fixed;
   top: -20px;
-  width: 10px;
+  width: 9px;
   height: 15px;
-  pointer-events: none;
   z-index: 100;
-  animation: confettiFall linear forwards;
+  pointer-events: none;
+  animation: fall linear forwards;
 }
 
-@keyframes confettiFall {
+@keyframes fall {
   to {
     transform: translateY(110vh) rotate(720deg);
     opacity: 0;
   }
 }
 
-/* FOOTER */
-
 footer {
   text-align: center;
-  padding: 35px;
-  color: #a8c9ef;
-  background: #08152c;
+  padding: 50px 15px;
+  color: var(--muted);
+  font-size: .9rem;
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 800px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .memory-content { grid-template-columns: 125px 1fr; }
+
+  .memory-content img,
+  .memory-content .placeholder { height: 135px; }
 }
 
-@media (max-width: 550px) {
-  section {
-    padding: 85px 6%;
-  }
+@media (max-width: 530px) {
+  section { padding: 75px 5%; }
 
-  .gallery {
-    grid-template-columns: 1fr;
-    max-width: 330px;
-  }
+  .grid { grid-template-columns: 1fr; }
 
-  .photo-card {
-    height: 360px;
-  }
+  .photo-card img,
+  .photo-card .placeholder { height: 260px; }
 
-  .hero-title {
-    font-size: 3.7rem;
-  }
+  .memory-content { grid-template-columns: 1fr; }
+
+  .memory-content img,
+  .memory-content .placeholder { height: 210px; }
+
+  .timeline::before { left: 13px; }
+
+  .memory { margin-left: 38px; }
+
+  .memory::before { left: -33px; }
+
+  .hero h1 { font-size: 3.6rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
@@ -537,469 +532,398 @@ footer {
 
 <body>
 
-<!-- STARS -->
-<div id="stars" aria-hidden="true"></div>
+<div class="stars" id="stars" aria-hidden="true"></div>
 
 <!-- WELCOME -->
-<section id="welcome">
 
-  <div class="floating-heart">💙</div>
-
-  <p class="eyebrow">A little something just for you</p>
-
-  <h1 class="hero-title">
-    Hey, Dad!
-  </h1>
-
-  <p class="hero-message">
-    I made something special for you.
-    <br>
-    Ready for a little surprise?
+<section class="hero" id="welcome">
+  <div class="emoji">😎💙</div>
+  <h1>生日快乐!</h1>
+  <p>
+    全世界最幽默，最帅气，也最辛苦的老爸。
+    我偷偷给你准备了一份惊喜！
   </p>
-
-  <button class="btn" onclick="startSurprise()">
-    Open Your Surprise 🎁
+  <button class="btn" id="start">
+    帅哥，点这里 🎁
   </button>
-
 </section>
 
-<!-- CELEBRATION -->
-<section id="celebration" class="hidden">
+<main id="experience" class="hidden">
 
-  <div class="balloon-container" id="balloons"></div>
+  <!-- BIRTHDAY CAKE -->
 
-  <p class="eyebrow">Today is all about you</p>
+  <section id="party">
+    <h2 class="heading">今天你最大！</h2>
 
-  <h2 class="birthday-text">
-    Happy Birthday, Dad!
-  </h2>
+    <div class="panel" style="max-width:620px;margin:35px auto 0">
+      <h3>许个愿吧 🎂</h3>
 
-  <p class="subtitle">
-    Wishing you a day filled with happiness,
-    laughter, love, and everything you deserve.
-    Thank you for being the amazing dad you are.
-  </p>
+      <button class="cake" id="cake" aria-label="Blow out the candles">
+        <span class="cake-base"></span>
+        <span class="cake-icing"></span>
+        <span class="candles">
+          <span class="candle"><span class="flame"></span></span>
+          <span class="candle"><span class="flame"></span></span>
+          <span class="candle"><span class="flame"></span></span>
+        </span>
+      </button>
 
-  <button class="btn" onclick="goTo('cake-section')">
-    Make a Birthday Wish ✨
-  </button>
-
-</section>
-
-<!-- CAKE -->
-<section id="cake-section" class="hidden">
-
-  <p class="eyebrow">Time to make a wish</p>
-
-  <h2 class="section-title">
-    Make a Wish, Dad! 🎂
-  </h2>
-
-  <p class="subtitle">
-    Close your eyes, make a wish,
-    then click the cake to blow out the candles!
-  </p>
-
-  <div class="cake"
-       id="cake"
-       onclick="blowCandles()"
-       role="button"
-       tabindex="0"
-       aria-label="Blow out birthday candles"
-       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();blowCandles()}">
-
-    <div class="cake-bottom"></div>
-    <div class="cake-top"></div>
-    <div class="icing"></div>
-
-    <div class="candles">
-      <div class="candle"><div class="flame"></div></div>
-      <div class="candle"><div class="flame"></div></div>
-      <div class="candle"><div class="flame"></div></div>
+      <p id="wish" aria-live="polite"
+         style="color:var(--gold);min-height:30px"></p>
     </div>
 
-  </div>
+    <a href="#memes" class="btn">
+      老爸的照片合集 ↓
+    </a>
+  </section>
 
-  <p id="cake-message" aria-live="polite"></p>
+  <div class="divider"></div>
 
-  <button class="btn hidden"
-          id="memories-btn"
-          onclick="goTo('memories')">
-    A Walk Down Memory Lane 📸
-  </button>
+  <!-- DAD'S PHOTO COLLECTION -->
 
-</section>
+  <section id="memes">
+    <h2 class="heading">一个帅气又搞笑的男人 😂</h2>
 
-<!-- MEMORIES -->
-<section id="memories" class="hidden">
+    <div class="grid" id="memeGrid"></div>
 
-  <p class="eyebrow">The moments that matter</p>
+    <p id="memeResult" aria-live="polite"
+       style="color:var(--gold);min-height:35px;margin-top:20px"></p>
+  </section>
 
-  <h2 class="section-title">
-    Our Favorite Memories
-  </h2>
+  <div class="divider"></div>
 
-  <p class="subtitle">
-    Every picture tells a story.
-    Tap a photo to discover a little message!
-  </p>
+  <!-- FAMILY MEMORIES -->
 
-  <div class="gallery">
+  <section id="memories">
+    <h2 class="heading">从小时候到现在</h2>
 
-    <!-- PHOTO 1 -->
-    <div class="photo-card" tabindex="0"
-         role="button"
-         aria-label="Flip memory one"
-         onclick="flipCard(this)"
-         onkeydown="flipWithKeyboard(event,this)">
-      <div class="photo-inner">
+    <div class="timeline" id="timeline"></div>
+  </section>
 
-        <div class="photo-front">
-          <img src="photo1.jpg" alt="Family memory one"
-               onerror="this.src='https://placehold.co/400x450/c6ddff/18345e?text=Our+Memory+1'">
-          <p>Memory #1 💙</p>
-        </div>
+  <div class="divider"></div>
 
-        <div class="photo-back">
-          <h3>Remember This?</h3>
-          <p>
-            Replace this with a favorite memory
-            you share with your dad!
-          </p>
-        </div>
+  <!-- FINAL LETTER -->
 
-      </div>
-    </div>
+  <section id="letterSection">
+    <h2 class="heading">你有一封信 💌</h2>
 
-    <!-- PHOTO 2 -->
-    <div class="photo-card" tabindex="0"
-         role="button"
-         aria-label="Flip memory two"
-         onclick="flipCard(this)"
-         onkeydown="flipWithKeyboard(event,this)">
-      <div class="photo-inner">
+    <button class="envelope" id="envelope"
+            aria-label="Open your birthday letter"></button>
 
-        <div class="photo-front">
-          <img src="photo2.jpg" alt="Family memory two"
-               onerror="this.src='https://placehold.co/400x450/c6ddff/18345e?text=Our+Memory+2'">
-          <p>Memory #2 ✨</p>
-        </div>
+    <article class="letter hidden" id="letter">
+      <h3>亲爱的Daddy：💙</h3>
 
-        <div class="photo-back">
-          <h3>Good Times</h3>
-          <p>
-            Add a funny story, a family tradition,
-            or a moment you'll never forget.
-          </p>
-        </div>
+      <p>生日快乐！</p>
 
-      </div>
-    </div>
+      <p>
+        今年我想送你一份不一样的生日礼物。最近学了写一些简单的代码，
+        所以想给你做一个专属的生日网站！虽然现在的技术还没那么厉害，
+        希望以后能用自己的能力让你和妈妈为我感到骄傲。
+      </p>
 
-    <!-- PHOTO 3 -->
-    <div class="photo-card" tabindex="0"
-         role="button"
-         aria-label="Flip memory three"
-         onclick="flipCard(this)"
-         onkeydown="flipWithKeyboard(event,this)">
-      <div class="photo-inner">
+      <p>
+        小时候，你总是忙着工作，经常不在家。从我们还是小孩，到如今慢慢长大；
+        从以前的小小kiosk，到现在的餐厅。看着这一切的变化，我也渐渐意识到
+        自己有多么幸运。
+      </p>
 
-        <div class="photo-front">
-          <img src="photo3.jpg" alt="Family memory three"
-               onerror="this.src='https://placehold.co/400x450/c6ddff/18345e?text=Our+Memory+3'">
-          <p>Memory #3 🎉</p>
-        </div>
+      <p>
+        现在我也长大了，离开家去上大学后 才发现那些看似平凡的时光有多么珍贵。
+        比如一家人难得都有空的时候，一起坐下来吃顿早餐；和妹妹一起在你们身边吵吵闹闹，
+        或者只是和家人一起度过平平常常的一天。真希望以后能有更多这样的时光。
+      </p>
 
-        <div class="photo-back">
-          <h3>Thank You, Dad</h3>
-          <p>
-            Thank you for all the little things
-            you do that mean so much to me.
-          </p>
-        </div>
+      <p>
+        如今我也想开始帮你和妈妈分担家里的责任。我知道自己还有很多需要学习的地方，
+        但我希望能一点一点帮你们减轻负担，就像你们一直以来照顾我们一样。
+      </p>
 
-      </div>
-    </div>
+      <p>
+        老爸，要记得多休息、多开心、多笑一笑，也要留点时间给自己 做一些喜欢的事情哦。
+      </p>
 
-  </div>
+      <p><strong>生日快乐！我爱你！💙</strong></p>
 
-  <button class="btn" onclick="goTo('letter-section')">
-    One Last Surprise 💌
-  </button>
+    </article>
 
-</section>
+  </section>
 
-<!-- LETTER -->
-<section id="letter-section" class="hidden">
-
-  <p class="eyebrow">From me to you</p>
-
-  <h2 class="section-title">
-    A Letter for Dad 💌
-  </h2>
-
-  <p class="subtitle" id="letter-instruction">
-    There's one more thing I want to tell you.
-    Click the envelope to open it!
-  </p>
-
-  <button class="envelope"
-          id="envelope"
-          onclick="openLetter()"
-          aria-label="Open birthday letter">
-  </button>
-
-  <article class="letter hidden" id="letter">
-
-    <h2>Dear Dad, 💙</h2>
-
-    <p>
-      Happy Birthday!
-    </p>
-
-    <p>
-      I wanted to make you something a little
-      different this year. Instead of just
-      giving you a regular birthday card,
-      I decided to create something myself.
-    </p>
-
-    <p>
-      Thank you for always being there for me,
-      supporting me, and believing in me.
-      I appreciate everything you've done
-      and all the memories we've made together.
-    </p>
-
-    <p>
-      I hope this year brings you so much
-      happiness, good health, laughter,
-      and wonderful new memories.
-    </p>
-
-    <p>
-      No matter how old I get,
-      I'll always be grateful to have you
-      as my dad.
-    </p>
-
-    <p>
-      Happy Birthday! I love you! 💙
-    </p>
-
-    <p class="signature">
-      Love,<br>
-      Your Daughter 💙
-    </p>
-
-  </article>
-
-  <button class="btn hidden"
-          id="replay-btn"
-          onclick="replaySurprise()">
-    Experience It Again ↻
-  </button>
-
-</section>
-
-<footer>
-  Made with love, a little code, and lots of 💙
-  <br>
-  Especially for Dad.
-</footer>
+</main>
 
 <script>
 
-/* CREATE TWINKLING STARS */
+// CUSTOMIZE YOUR PHOTOS AND MESSAGES HERE.
+// Put your images in a folder named "photos" beside index.html.
 
-const starContainer = document.getElementById("stars");
-
-for (let i = 0; i < 100; i++) {
-  const star = document.createElement("div");
-  star.className = "star";
-
-  star.style.left = Math.random() * 100 + "%";
-  star.style.top = Math.random() * 100 + "%";
-  star.style.animationDelay = Math.random() * 4 + "s";
-
-  starContainer.appendChild(star);
-}
-
-/* START SURPRISE */
-
-function startSurprise() {
-  document.getElementById("welcome").classList.add("hidden");
-
-  document.getElementById("celebration").classList.remove("hidden");
-
-  createBalloons();
-  launchConfetti();
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-/* MOVE BETWEEN SECTIONS */
-
-function goTo(id) {
-  const section = document.getElementById(id);
-
-  section.classList.remove("hidden");
-
-  requestAnimationFrame(() => {
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-}
-
-/* FLOATING BALLOONS */
-
-function createBalloons() {
-  const container = document.getElementById("balloons");
-
-  container.innerHTML = "";
-
-  const emojis = ["🎈", "💙", "🎈", "🤍", "🎈"];
-
-  for (let i = 0; i < 16; i++) {
-    const balloon = document.createElement("div");
-
-    balloon.className = "balloon";
-    balloon.textContent = emojis[i % emojis.length];
-
-    balloon.style.left = Math.random() * 95 + "%";
-    balloon.style.animationDuration = 8 + Math.random() * 7 + "s";
-    balloon.style.animationDelay = -Math.random() * 12 + "s";
-
-    container.appendChild(balloon);
+const memes = [
+  {
+    file: 'dad-young.jpg',
+    emoji: '😎',
+    title: 'The Original Heartthrob',
+    caption: 'Okay Dad, we admit it. You were handsome.',
+    note: 'Proof that Dad has always had main-character energy.'
+  },
+  {
+    file: 'dad-whipped-cream.jpg',
+    emoji: '😂',
+    title: 'The Whipped Cream Incident',
+    caption: 'No explanation needed.',
+    note: 'A truly legendary 表情包. 10/10.'
+  },
+  {
+    file: 'dad-sisters-laughing.jpg',
+    emoji: '🤣',
+    title: 'Professional Comedian',
+    caption: 'Three sisters, one very funny dad.',
+    note: 'Some of our best moments are the ones where we can’t stop laughing.'
   }
+];
+
+const memories = [
+  {
+    file: 'dad-babies-cake.jpg',
+    emoji: '🎂',
+    title: 'Where It All Began',
+    text: 'When we were tiny, you were already taking care of us. Even before we could remember, you were there.'
+  },
+  {
+    file: 'halloween-kiosk.jpg',
+    emoji: '🎃',
+    title: 'The Little Kiosk',
+    text: 'Halloween at the old mall kiosk. We’ve come so far—from that small space to our restaurant. I’m proud of what you and Mom built.'
+  },
+  {
+    file: 'family-breakfast.jpg',
+    emoji: '🥞',
+    title: 'The Rare Family Breakfasts',
+    text: 'Days when all five of us could be together for the whole day were rare. Those breakfasts mean more to me now than ever.'
+  },
+  {
+    file: 'dad-ordinary-day.jpg',
+    emoji: '💙',
+    title: 'Just an Ordinary Day',
+    text: 'Not every special moment needs a holiday. Sometimes being together is enough.'
+  },
+  {
+    file: 'dad-graduation.jpg',
+    emoji: '🎓',
+    title: 'A Big Milestone',
+    text: 'You were there for my graduation. Thank you for helping me reach this moment.'
+  },
+  {
+    file: 'mom-dad-1.jpg',
+    emoji: '💕',
+    title: 'The Original Team',
+    text: 'You and Mom have done so much together to make our family what it is.'
+  },
+  {
+    file: 'mom-dad-2.jpg',
+    emoji: '💐',
+    title: 'Mom & Dad, Always',
+    text: 'Another little moment of the two people who made our world possible.'
+  },
+  {
+    file: 'family-christmas.jpg',
+    emoji: '🎄',
+    title: 'Last Christmas',
+    text: 'Another holiday, another chance to have all of us in one picture.'
+  },
+  {
+    file: 'family-columbus.jpg',
+    emoji: '🏙️',
+    title: 'Together in Columbus',
+    text: 'Different places, new chapters, but always the same family.'
+  },
+  {
+    file: 'dad-sisters-laughing.jpg',
+    emoji: '🥹',
+    title: 'Our Favorite Kind of Chaos',
+    text: 'Three sisters laughing with Dad. I hope we never stop making memories like this.'
+  }
+];
+
+// PHOTO LOADING WITH EMOJI PLACEHOLDERS
+
+function photo(file, emoji, alt) {
+  const wrap = document.createElement('div');
+  wrap.className = 'placeholder';
+  wrap.textContent = emoji;
+
+  const img = document.createElement('img');
+  img.src = 'photos/' + file;
+  img.alt = alt;
+  img.loading = 'lazy';
+
+  img.onerror = () => img.replaceWith(wrap);
+
+  return img;
 }
 
-/* CONFETTI ANIMATION */
+// BUILD DAD'S MEME CARDS
 
-function launchConfetti() {
-  const colors = [
-    "#83b9ff",
-    "#ffffff",
-    "#ffe3a3",
-    "#b8d7ff",
-    "#6c9ce8"
-  ];
+const memeGrid = document.getElementById('memeGrid');
 
-  for (let i = 0; i < 120; i++) {
-    const piece = document.createElement("div");
+memes.forEach(m => {
+  const card = document.createElement('button');
+  card.className = 'photo-card';
+  card.setAttribute('aria-expanded', 'false');
 
-    piece.className = "confetti";
+  card.append(photo(m.file, m.emoji, m.title));
 
-    piece.style.left = Math.random() * 100 + "vw";
-    piece.style.background =
+  const title = document.createElement('strong');
+  title.textContent = m.title;
+
+  const cap = document.createElement('span');
+  cap.textContent = m.caption;
+
+  const note = document.createElement('div');
+  note.className = 'memory-note';
+  note.textContent = m.note;
+
+  card.append(title, cap, note);
+
+  card.addEventListener('click', () => {
+    card.classList.toggle('open');
+    card.setAttribute(
+      'aria-expanded',
+      String(card.classList.contains('open'))
+    );
+  });
+
+  memeGrid.append(card);
+});
+
+// BUILD FAMILY TIMELINE
+
+const timeline = document.getElementById('timeline');
+
+memories.forEach(m => {
+  const outer = document.createElement('div');
+  outer.className = 'memory';
+
+  const inner = document.createElement('div');
+  inner.className = 'memory-content';
+
+  const copy = document.createElement('div');
+
+  const title = document.createElement('h3');
+  title.textContent = m.title;
+
+  const body = document.createElement('p');
+  body.textContent = m.text;
+
+  copy.append(title, body);
+  inner.append(photo(m.file, m.emoji, m.title), copy);
+  outer.append(inner);
+  timeline.append(outer);
+});
+
+// CREATE STARS
+
+const starBox = document.getElementById('stars');
+
+for (let i = 0; i < 90; i++) {
+  const s = document.createElement('span');
+  s.className = 'star';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.animationDelay = Math.random() * 4 + 's';
+  starBox.append(s);
+}
+
+// CONFETTI ANIMATION
+
+function confetti() {
+  const colors = ['#8fc4ff', '#fff', '#ffdf9b', '#6c9ce8'];
+
+  for (let i = 0; i < 100; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti';
+
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.background =
       colors[Math.floor(Math.random() * colors.length)];
 
-    piece.style.animationDuration =
-      3 + Math.random() * 3 + "s";
+    p.style.animationDuration =
+      (2.5 + Math.random() * 3) + 's';
 
-    piece.style.animationDelay =
-      Math.random() * 1.5 + "s";
+    p.style.animationDelay =
+      (Math.random() * .8) + 's';
 
-    document.body.appendChild(piece);
-
-    piece.addEventListener("animationend", () => {
-      piece.remove();
-    });
+    document.body.append(p);
+    p.addEventListener('animationend', () => p.remove());
   }
 }
 
-/* BLOW OUT CANDLES */
+// START THE SURPRISE
 
-let candlesBlown = false;
+document.getElementById('start').addEventListener('click', () => {
+  document.getElementById('welcome').classList.add('hidden');
+  document.getElementById('experience').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  confetti();
+});
 
-function blowCandles() {
-  if (candlesBlown) return;
+// BLOW OUT CANDLES
 
-  candlesBlown = true;
+let blown = false;
 
-  document.getElementById("cake").classList.add("out");
+document.getElementById('cake').addEventListener('click', () => {
+  if (blown) return;
 
-  document.getElementById("cake-message").textContent =
-    "May all your birthday wishes come true! 💙";
+  blown = true;
+  document.getElementById('cake').classList.add('out');
 
-  document.getElementById("memories-btn")
-    .classList.remove("hidden");
+  document.getElementById('wish').textContent =
+    '愿你身体健康、天天开心、心想事成！💙';
 
-  launchConfetti();
-}
+  confetti();
+});
 
-/* FLIP PHOTO CARDS */
+// RANDOM DAD REACTION
 
-function flipCard(card) {
-  card.classList.toggle("flipped");
-  card.setAttribute(
-    "aria-pressed",
-    card.classList.contains("flipped") ? "true" : "false"
-  );
-}
+document.getElementById('randomMeme').addEventListener('click', () => {
+  const m = memes[Math.floor(Math.random() * memes.length)];
 
-function flipWithKeyboard(event, card) {
-  if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault();
-    flipCard(card);
-  }
-}
+  document.getElementById('memeResult').textContent =
+    m.emoji + ' ' + m.title + ' — ' + m.caption;
+});
 
-/* OPEN BIRTHDAY LETTER */
+// OPEN BIRTHDAY LETTER
 
-function openLetter() {
-  document.getElementById("envelope").classList.add("hidden");
+document.getElementById('envelope').addEventListener('click', () => {
+  document.getElementById('envelope').classList.add('hidden');
+  document.getElementById('openHint').classList.add('hidden');
+  document.getElementById('letter').classList.remove('hidden');
+  document.getElementById('replay').classList.remove('hidden');
 
-  document.getElementById("letter-instruction")
-    .classList.add("hidden");
+  confetti();
+});
 
-  document.getElementById("letter").classList.remove("hidden");
+// REPLAY WEBSITE
 
-  document.getElementById("replay-btn")
-    .classList.remove("hidden");
+document.getElementById('replay').addEventListener('click', () => {
+  blown = false;
 
-  launchConfetti();
-}
+  document.getElementById('cake').classList.remove('out');
+  document.getElementById('wish').textContent = '';
 
-/* REPLAY THE EXPERIENCE */
-
-function replaySurprise() {
-  candlesBlown = false;
-
-  document.getElementById("cake").classList.remove("out");
-
-  document.getElementById("cake-message").textContent = "";
-
-  document.getElementById("memories-btn")
-    .classList.add("hidden");
-
-  document.querySelectorAll(".photo-card").forEach(card => {
-    card.classList.remove("flipped");
-    card.setAttribute("aria-pressed", "false");
+  document.querySelectorAll('.photo-card').forEach(c => {
+    c.classList.remove('open');
+    c.setAttribute('aria-expanded', 'false');
   });
 
-  document.getElementById("envelope").classList.remove("hidden");
-  document.getElementById("letter").classList.add("hidden");
+  document.getElementById('letter').classList.add('hidden');
+  document.getElementById('envelope').classList.remove('hidden');
+  document.getElementById('openHint').classList.remove('hidden');
+  document.getElementById('replay').classList.add('hidden');
 
-  document.getElementById("letter-instruction")
-    .classList.remove("hidden");
+  document.getElementById('experience').classList.add('hidden');
+  document.getElementById('welcome').classList.remove('hidden');
 
-  document.getElementById("replay-btn").classList.add("hidden");
-
-  [
-    "celebration",
-    "cake-section",
-    "memories",
-    "letter-section"
-  ].forEach(id => {
-    document.getElementById(id).classList.add("hidden");
-  });
-
-  document.getElementById("welcome").classList.remove("hidden");
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 </script>
-
 </body>
 </html>
