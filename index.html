@@ -258,145 +258,122 @@ section {
   color: var(--muted);
 }
 
-/* PHOTO CARDS */
+/* PHOTO COLLAGE */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 14px;
   margin-top: 40px;
 }
 
 .photo-card {
-  border: 0;
-  border-radius: 20px;
-  padding: 12px 12px 20px;
+  margin: 0;
+  padding: 9px 9px 16px;
+  border-radius: 8px;
   background: #eaf4ff;
   color: #143154;
-  text-align: left;
-  min-width: 0;
   box-shadow: 0 15px 35px #0004;
+  transform: rotate(-2deg);
   transition: transform .25s;
+  min-width: 0;
 }
 
-.photo-card:hover { transform: translateY(-5px); }
-
-.photo-card img,
-.placeholder {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #a7cefc, #e4f2ff);
-  color: #294c79;
-  text-align: center;
-  padding: 16px;
-  font-size: 2.4rem;
+.photo-card:nth-child(3n + 2) {
+  transform: rotate(3deg) translateY(15px);
 }
 
-.photo-card strong {
+.photo-card:nth-child(3n) {
+  transform: rotate(-3deg) translateY(-8px);
+}
+
+.photo-card:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.photo-card img {
   display: block;
-  margin: 14px 6px 5px;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.photo-card figcaption {
+  margin: 12px 6px 2px;
   font-size: 1rem;
+  font-weight: 700;
 }
 
-.photo-card span {
-  display: block;
-  margin: 0 6px;
-  color: #476483;
-  font-size: .88rem;
-  line-height: 1.6;
-}
+/* FAMILY PHOTO COLLAGE */
 
-.memory-note {
-  display: none;
-  margin: 12px 6px 0;
-  padding-top: 12px;
-  border-top: 1px solid #aac8e7;
-  font-size: .95rem;
-  line-height: 1.7;
-}
-
-.photo-card.open .memory-note { display: block; }
-
-/* MEMORY TIMELINE */
-
-.timeline {
-  position: relative;
-  max-width: 850px;
-  margin: 45px auto 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 25px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #83b9ff77;
-}
-
-.memory {
-  position: relative;
-  margin: 0 0 26px 60px;
-  text-align: left;
-}
-
-.memory::before {
-  content: '✦';
-  position: absolute;
-  left: -46px;
-  top: 25px;
-  color: var(--gold);
-  font-size: 1.3rem;
-}
-
-.memory-content {
+.family-collage {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 22px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 36px;
   align-items: center;
-  background: #102d50;
-  border: 1px solid #a8d4ff2a;
-  padding: 15px;
-  border-radius: 22px;
 }
 
-.memory-content img,
-.memory-content .placeholder {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 13px;
-}
-
-.memory h3 {
-  font-size: 1.35rem;
-  margin: 0 0 8px;
-}
-
-.memory p {
-  color: var(--muted);
+.family-collage figure {
+  grid-column: span 2;
   margin: 0;
-  font-size: .94rem;
+  padding: 9px 9px 14px;
+  background: #eaf4ff;
+  color: #143154;
+  border-radius: 7px;
+  box-shadow: 0 12px 30px #0005;
+  transform: rotate(-3deg);
+  transition: transform .25s ease;
 }
 
-/* HEARTFELT SECTION */
-
-.quote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.55rem, 3.8vw, 2.7rem);
-  line-height: 1.6;
-  max-width: 850px;
-  margin: 35px auto;
-  color: #e8f3ff;
+.family-collage figure:nth-child(even) {
+  transform: rotate(3deg) translateY(12px);
 }
 
-.quote strong { color: var(--gold); }
+.family-collage figure:nth-child(4),
+.family-collage figure:nth-child(5) {
+  grid-column: span 3;
+}
+
+.family-collage figure:hover {
+  transform: rotate(0) scale(1.04);
+  position: relative;
+  z-index: 1;
+}
+
+.family-collage img {
+  display: block;
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+}
+
+.family-collage figcaption {
+  padding: 12px 4px 0;
+  font-weight: 700;
+  font-size: .92rem;
+}
+
+@media (max-width: 600px) {
+  .family-collage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .family-collage figure,
+  .family-collage figure:nth-child(4),
+  .family-collage figure:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .family-collage figure:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .family-collage img {
+    height: 175px;
+  }
+}
 
 /* ENVELOPE AND LETTER */
 
@@ -413,7 +390,9 @@ section {
   transition: transform .25s;
 }
 
-.envelope:hover { transform: translateY(-8px); }
+.envelope:hover {
+  transform: translateY(-8px);
+}
 
 .envelope::before {
   content: '';
@@ -444,9 +423,13 @@ section {
   animation: appear .6s ease;
 }
 
-.letter p { line-height: 2; }
+.letter p {
+  line-height: 2;
+}
 
-.letter h3 { font-size: 2rem; }
+.letter h3 {
+  font-size: 2rem;
+}
 
 .signature {
   text-align: right;
@@ -455,8 +438,15 @@ section {
 }
 
 @keyframes appear {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* CONFETTI */
@@ -491,33 +481,24 @@ footer {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .memory-content { grid-template-columns: 125px 1fr; }
-
-  .memory-content img,
-  .memory-content .placeholder { height: 135px; }
 }
 
 @media (max-width: 530px) {
-  section { padding: 75px 5%; }
+  section {
+    padding: 75px 5%;
+  }
 
-  .grid { grid-template-columns: 1fr; }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
-  .photo-card img,
-  .photo-card .placeholder { height: 260px; }
+  .photo-card img {
+    height: 260px;
+  }
 
-  .memory-content { grid-template-columns: 1fr; }
-
-  .memory-content img,
-  .memory-content .placeholder { height: 210px; }
-
-  .timeline::before { left: 13px; }
-
-  .memory { margin-left: 38px; }
-
-  .memory::before { left: -33px; }
-
-  .hero h1 { font-size: 3.6rem; }
+  .hero h1 {
+    font-size: 3.6rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -538,11 +519,17 @@ footer {
 
 <section class="hero" id="welcome">
   <div class="emoji">😎💙</div>
-  <h1>生日快乐!</h1>
+
+  <h1>老爸，生日快乐!</h1>
+
   <p>
     全世界最幽默，最帅气，也最辛苦的老爸。
-    我偷偷给你准备了一份惊喜！
   </p>
+
+  <p>
+    我给你准备了一份惊喜！
+  </p>
+
   <button class="btn" id="start">
     帅哥，点这里 🎁
   </button>
@@ -556,48 +543,94 @@ footer {
     <h2 class="heading">今天你最大！</h2>
 
     <div class="panel" style="max-width:620px;margin:35px auto 0">
-      <h3>许个愿吧 🎂</h3>
+      <h3>许一个愿吧 🎂</h3>
 
       <button class="cake" id="cake" aria-label="Blow out the candles">
         <span class="cake-base"></span>
         <span class="cake-icing"></span>
+
         <span class="candles">
-          <span class="candle"><span class="flame"></span></span>
-          <span class="candle"><span class="flame"></span></span>
-          <span class="candle"><span class="flame"></span></span>
+          <span class="candle">
+            <span class="flame"></span>
+          </span>
+
+          <span class="candle">
+            <span class="flame"></span>
+          </span>
+
+          <span class="candle">
+            <span class="flame"></span>
+          </span>
         </span>
       </button>
 
-      <p id="wish" aria-live="polite"
-         style="color:var(--gold);min-height:30px"></p>
+      <p
+        id="wish"
+        aria-live="polite"
+        style="color:var(--gold);min-height:30px"
+      ></p>
     </div>
 
-    <a href="#memes" class="btn">
-      老爸的照片合集 ↓
+    <a href="#familyCollage" class="btn">
+      照片拼贴 ↓
     </a>
   </section>
 
   <div class="divider"></div>
 
-  <!-- DAD'S PHOTO COLLECTION -->
+  <!-- FAMILY PHOTO COLLAGE -->
 
-  <section id="memes">
-    <h2 class="heading">一个帅气又搞笑的男人 😂</h2>
+  <section id="familyCollage">
+    <h2 class="heading">照片拼贴 📸</h2>
 
-    <div class="grid" id="memeGrid"></div>
+    <div class="family-collage">
 
-    <p id="memeResult" aria-live="polite"
-       style="color:var(--gold);min-height:35px;margin-top:20px"></p>
-  </section>
+      <figure>
+        <img
+          src="christmas.jpeg"
+          alt="Christmas"
+          loading="lazy"
+        >
+        <figcaption>Christmas 🎄</figcaption>
+      </figure>
 
-  <div class="divider"></div>
+      <figure>
+        <img
+          src="dad_mom2.jpeg"
+          alt="Dad and Mom"
+          loading="lazy"
+        >
+        <figcaption>Dad & Mom 💙</figcaption>
+      </figure>
 
-  <!-- FAMILY MEMORIES -->
+      <figure>
+        <img
+          src="whippedcream.jpeg"
+          alt="Playful whipped cream memory with Dad"
+          loading="lazy"
+        >
+        <figcaption>😂</figcaption>
+      </figure>
 
-  <section id="memories">
-    <h2 class="heading">从小时候到现在</h2>
+      <figure>
+        <img
+          src="family_breakfast.jpeg"
+          alt="Family breakfast"
+          loading="lazy"
+        >
+        <figcaption>Family Breakfast</figcaption>
+      </figure>
 
-    <div class="timeline" id="timeline"></div>
+      <figure>
+        <img
+          src="grad.jpeg"
+          alt="Graduation"
+          loading="lazy"
+        >
+        <figcaption>Special Moments 🎓</figcaption>
+      </figure>
+
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -607,19 +640,25 @@ footer {
   <section id="letterSection">
     <h2 class="heading">你有一封信 💌</h2>
 
-    <button class="envelope" id="envelope"
-            aria-label="Open your birthday letter"></button>
+    <button
+      class="envelope"
+      id="envelope"
+      aria-label="Open your birthday letter"
+    ></button>
 
     <article class="letter hidden" id="letter">
+
       <h3>亲爱的Daddy：💙</h3>
 
       <p>生日快乐！</p>
 
       <p>
         今年我想送你一份不一样的生日礼物。最近学了写一些简单的代码，
-        所以想给你做一个专属的生日网站！虽然现在的技术还没那么厉害，
+        所以想给你做一个专属的生日网站！虽然现在的技术还没那么好，
         希望以后能用自己的能力让你和妈妈为我感到骄傲。
       </p>
+
+      <img src="youngtime.jpeg">
 
       <p>
         小时候，你总是忙着工作，经常不在家。从我们还是小孩，到如今慢慢长大；
@@ -627,11 +666,15 @@ footer {
         自己有多么幸运。
       </p>
 
+      <img src="halloween.jpeg">
+
       <p>
         现在我也长大了，离开家去上大学后 才发现那些看似平凡的时光有多么珍贵。
         比如一家人难得都有空的时候，一起坐下来吃顿早餐；和妹妹一起在你们身边吵吵闹闹，
-        或者只是和家人一起度过平平常常的一天。真希望以后能有更多这样的时光。
+        或者只是和家人一起度过平常的一天。真希望以后能有更多这样的时光。
       </p>
+
+      <img src="family_breakfast.jpeg">
 
       <p>
         如今我也想开始帮你和妈妈分担家里的责任。我知道自己还有很多需要学习的地方，
@@ -639,184 +682,19 @@ footer {
       </p>
 
       <p>
-        老爸，要记得多休息、多开心、多笑一笑，也要留点时间给自己 做一些喜欢的事情哦。
+        老爸，要记得多休息、多开心、多笑一笑，也要留点时间给自己 做一些喜欢的事情哦！
       </p>
 
-      <p><strong>生日快乐！我爱你！💙</strong></p>
+      <p>
+        <strong>生日快乐！我爱你！💙</strong>
+      </p>
 
     </article>
-
   </section>
 
 </main>
 
 <script>
-
-// CUSTOMIZE YOUR PHOTOS AND MESSAGES HERE.
-// Put your images in a folder named "photos" beside index.html.
-
-const memes = [
-  {
-    file: 'dad-young.jpg',
-    emoji: '😎',
-    title: 'The Original Heartthrob',
-    caption: 'Okay Dad, we admit it. You were handsome.',
-    note: 'Proof that Dad has always had main-character energy.'
-  },
-  {
-    file: 'dad-whipped-cream.jpg',
-    emoji: '😂',
-    title: 'The Whipped Cream Incident',
-    caption: 'No explanation needed.',
-    note: 'A truly legendary 表情包. 10/10.'
-  },
-  {
-    file: 'dad-sisters-laughing.jpg',
-    emoji: '🤣',
-    title: 'Professional Comedian',
-    caption: 'Three sisters, one very funny dad.',
-    note: 'Some of our best moments are the ones where we can’t stop laughing.'
-  }
-];
-
-const memories = [
-  {
-    file: 'dad-babies-cake.jpg',
-    emoji: '🎂',
-    title: 'Where It All Began',
-    text: 'When we were tiny, you were already taking care of us. Even before we could remember, you were there.'
-  },
-  {
-    file: 'halloween-kiosk.jpg',
-    emoji: '🎃',
-    title: 'The Little Kiosk',
-    text: 'Halloween at the old mall kiosk. We’ve come so far—from that small space to our restaurant. I’m proud of what you and Mom built.'
-  },
-  {
-    file: 'family-breakfast.jpg',
-    emoji: '🥞',
-    title: 'The Rare Family Breakfasts',
-    text: 'Days when all five of us could be together for the whole day were rare. Those breakfasts mean more to me now than ever.'
-  },
-  {
-    file: 'dad-ordinary-day.jpg',
-    emoji: '💙',
-    title: 'Just an Ordinary Day',
-    text: 'Not every special moment needs a holiday. Sometimes being together is enough.'
-  },
-  {
-    file: 'dad-graduation.jpg',
-    emoji: '🎓',
-    title: 'A Big Milestone',
-    text: 'You were there for my graduation. Thank you for helping me reach this moment.'
-  },
-  {
-    file: 'mom-dad-1.jpg',
-    emoji: '💕',
-    title: 'The Original Team',
-    text: 'You and Mom have done so much together to make our family what it is.'
-  },
-  {
-    file: 'mom-dad-2.jpg',
-    emoji: '💐',
-    title: 'Mom & Dad, Always',
-    text: 'Another little moment of the two people who made our world possible.'
-  },
-  {
-    file: 'family-christmas.jpg',
-    emoji: '🎄',
-    title: 'Last Christmas',
-    text: 'Another holiday, another chance to have all of us in one picture.'
-  },
-  {
-    file: 'family-columbus.jpg',
-    emoji: '🏙️',
-    title: 'Together in Columbus',
-    text: 'Different places, new chapters, but always the same family.'
-  },
-  {
-    file: 'dad-sisters-laughing.jpg',
-    emoji: '🥹',
-    title: 'Our Favorite Kind of Chaos',
-    text: 'Three sisters laughing with Dad. I hope we never stop making memories like this.'
-  }
-];
-
-// PHOTO LOADING WITH EMOJI PLACEHOLDERS
-
-function photo(file, emoji, alt) {
-  const wrap = document.createElement('div');
-  wrap.className = 'placeholder';
-  wrap.textContent = emoji;
-
-  const img = document.createElement('img');
-  img.src = 'photos/' + file;
-  img.alt = alt;
-  img.loading = 'lazy';
-
-  img.onerror = () => img.replaceWith(wrap);
-
-  return img;
-}
-
-// BUILD DAD'S MEME CARDS
-
-const memeGrid = document.getElementById('memeGrid');
-
-memes.forEach(m => {
-  const card = document.createElement('button');
-  card.className = 'photo-card';
-  card.setAttribute('aria-expanded', 'false');
-
-  card.append(photo(m.file, m.emoji, m.title));
-
-  const title = document.createElement('strong');
-  title.textContent = m.title;
-
-  const cap = document.createElement('span');
-  cap.textContent = m.caption;
-
-  const note = document.createElement('div');
-  note.className = 'memory-note';
-  note.textContent = m.note;
-
-  card.append(title, cap, note);
-
-  card.addEventListener('click', () => {
-    card.classList.toggle('open');
-    card.setAttribute(
-      'aria-expanded',
-      String(card.classList.contains('open'))
-    );
-  });
-
-  memeGrid.append(card);
-});
-
-// BUILD FAMILY TIMELINE
-
-const timeline = document.getElementById('timeline');
-
-memories.forEach(m => {
-  const outer = document.createElement('div');
-  outer.className = 'memory';
-
-  const inner = document.createElement('div');
-  inner.className = 'memory-content';
-
-  const copy = document.createElement('div');
-
-  const title = document.createElement('h3');
-  title.textContent = m.title;
-
-  const body = document.createElement('p');
-  body.textContent = m.text;
-
-  copy.append(title, body);
-  inner.append(photo(m.file, m.emoji, m.title), copy);
-  outer.append(inner);
-  timeline.append(outer);
-});
 
 // CREATE STARS
 
@@ -824,10 +702,12 @@ const starBox = document.getElementById('stars');
 
 for (let i = 0; i < 90; i++) {
   const s = document.createElement('span');
+
   s.className = 'star';
   s.style.left = Math.random() * 100 + '%';
   s.style.top = Math.random() * 100 + '%';
   s.style.animationDelay = Math.random() * 4 + 's';
+
   starBox.append(s);
 }
 
@@ -838,9 +718,10 @@ function confetti() {
 
   for (let i = 0; i < 100; i++) {
     const p = document.createElement('div');
-    p.className = 'confetti';
 
+    p.className = 'confetti';
     p.style.left = Math.random() * 100 + 'vw';
+
     p.style.background =
       colors[Math.floor(Math.random() * colors.length)];
 
@@ -851,6 +732,7 @@ function confetti() {
       (Math.random() * .8) + 's';
 
     document.body.append(p);
+
     p.addEventListener('animationend', () => p.remove());
   }
 }
@@ -860,7 +742,9 @@ function confetti() {
 document.getElementById('start').addEventListener('click', () => {
   document.getElementById('welcome').classList.add('hidden');
   document.getElementById('experience').classList.remove('hidden');
+
   window.scrollTo({ top: 0, behavior: 'instant' });
+
   confetti();
 });
 
@@ -872,6 +756,7 @@ document.getElementById('cake').addEventListener('click', () => {
   if (blown) return;
 
   blown = true;
+
   document.getElementById('cake').classList.add('out');
 
   document.getElementById('wish').textContent =
@@ -880,48 +765,13 @@ document.getElementById('cake').addEventListener('click', () => {
   confetti();
 });
 
-// RANDOM DAD REACTION
-
-document.getElementById('randomMeme').addEventListener('click', () => {
-  const m = memes[Math.floor(Math.random() * memes.length)];
-
-  document.getElementById('memeResult').textContent =
-    m.emoji + ' ' + m.title + ' — ' + m.caption;
-});
-
 // OPEN BIRTHDAY LETTER
 
 document.getElementById('envelope').addEventListener('click', () => {
   document.getElementById('envelope').classList.add('hidden');
-  document.getElementById('openHint').classList.add('hidden');
   document.getElementById('letter').classList.remove('hidden');
-  document.getElementById('replay').classList.remove('hidden');
 
   confetti();
-});
-
-// REPLAY WEBSITE
-
-document.getElementById('replay').addEventListener('click', () => {
-  blown = false;
-
-  document.getElementById('cake').classList.remove('out');
-  document.getElementById('wish').textContent = '';
-
-  document.querySelectorAll('.photo-card').forEach(c => {
-    c.classList.remove('open');
-    c.setAttribute('aria-expanded', 'false');
-  });
-
-  document.getElementById('letter').classList.add('hidden');
-  document.getElementById('envelope').classList.remove('hidden');
-  document.getElementById('openHint').classList.remove('hidden');
-  document.getElementById('replay').classList.add('hidden');
-
-  document.getElementById('experience').classList.add('hidden');
-  document.getElementById('welcome').classList.remove('hidden');
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 </script>
