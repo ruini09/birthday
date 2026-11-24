@@ -327,33 +327,41 @@ section {
   transition: transform .25s ease;
 }
 
-.family-collage figure:nth-child(even) {
-  transform: rotate(3deg) translateY(12px);
+/* Graduation */
+.family-collage figure:nth-child(1) {
+  transform: rotate(-3deg);
 }
 
-.family-collage figure:nth-child(4),
-.family-collage figure:nth-child(5) {
-  grid-column: span 3;
+/* Christmas */
+.family-collage figure:nth-child(2) {
+  transform: translateY(12px) rotate(3deg);
 }
-  
+
+/* Whipped Cream */
 .family-collage figure:nth-child(3) {
   transform: translateY(20px) rotate(-3deg);
 }
 
+/* Dad & Mom */
 .family-collage figure:nth-child(4) {
+  grid-column: span 3;
   transform: translateY(30px) rotate(3deg);
 }
 
+/* Family Breakfast */
 .family-collage figure:nth-child(5) {
+  grid-column: span 3;
   transform: translate(-20px, 25px) rotate(-3deg);
 }
-  
+
+/* Hover Effect */
 .family-collage figure:hover {
   transform: rotate(0) scale(1.04);
   position: relative;
   z-index: 1;
 }
 
+/* Photo Size */
 .family-collage img {
   display: block;
   width: 100%;
@@ -361,12 +369,14 @@ section {
   object-fit: cover;
 }
 
+/* Photo Captions */
 .family-collage figcaption {
   padding: 12px 4px 0;
   font-weight: 700;
   font-size: .92rem;
 }
 
+/* Mobile Layout */
 @media (max-width: 600px) {
   .family-collage {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -607,7 +617,7 @@ footer {
       
       <figure>
         <img
-          src="grad.jpeg"
+          src="graduation.jpeg"
           alt="Graduation"
           loading="lazy"
         >
