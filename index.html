@@ -375,36 +375,19 @@ section {
   }
 }
 
-  /* Adjust the first photo in the last row */
-.grid .photo-card:nth-last-child(-n + 3):nth-child(3n + 1) img {
+  /* Third photo — first row, right */
+.family-collage figure:nth-child(3) img {
   object-position: center 25%;
 }
 
-/* Adjust the two larger family photos */
-.family-collage figure:nth-child(4) img,
+/* Fourth photo — last row, left */
+.family-collage figure:nth-child(4) img {
+  object-position: center 25%;
+}
+
+/* Fifth photo — last row, right */
 .family-collage figure:nth-child(5) img {
-  object-position: center 25%;
-}
-
-/* Move the bottom family photo frames down */
-.family-collage figure:nth-child(4) {
-  transform: rotate(3deg) translateY(20px);
-}
-
-.family-collage figure:nth-child(5) {
-  transform: rotate(-3deg) translateY(20px);
-}
-
-/* Add extra spacing */
-.grid,
-.family-collage {
-  row-gap: 25px;
-  padding-bottom: 35px;
-}
-
-/* Preserve hover animation */
-.family-collage figure:hover {
-  transform: rotate(0deg) scale(1.04);
+  object-position: 70% 25%;
 }
   
 /* ENVELOPE AND LETTER */
